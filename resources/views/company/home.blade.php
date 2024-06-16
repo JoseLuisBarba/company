@@ -88,7 +88,7 @@
               <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
                 <div class="d-flex justify-content-center align-items-center h-100">
                   <div class="text-white">
-                    <h1 class="mb-3">VideoClub</h1>
+                    <h1 class="mb-3">Empresa</h1>
                     <h4 class="mb-3">La mejor experiencia</h4>
                     <a data-mdb-ripple-init class="btn btn-outline-light btn-lg" href="#!" role="button"
                     >BLOG</a
@@ -98,64 +98,10 @@
               </div>
             </div>
             <!-- Background image -->
-
         </header>
-
         <main>
-            <div class="container py-5">
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-                    <!-- Tarjeta 1 -->
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary">Button</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tarjeta 2 -->
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary">Button</button>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary">Button</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary">Button</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <button type="button" class="btn btn-primary">Button</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
-
         <!-- MDB -->
         <script
             type="text/javascript"

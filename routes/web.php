@@ -15,30 +15,28 @@ use App\Http\Controllers\CatalogueClientController;
 |
 */
 
-Route::get('/', function () {
-    return view('company.home');
-});
+$talleres = [
+    [ 'titulo' => 'Danza'],
+    [ 'titulo' => 'Baile'],
+    [ 'titulo' => 'Oratoria'],
+    [ 'titulo' => 'Liderazgo'],
+];
 
+Route::view('/', 'inicio')->name('inicio');
 
-
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
-Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-
+Route::view('programas', 'programas')->name('programas');
+Route::view('asesoramiento', 'asesoramiento')->name('asesoramiento');
+Route::view('contacto', 'contacto')->name('contacto');
+/**
+ * Talleres endpoints
+ */
+Route::get('talleres', 'App\Http\Controllers\TalleresController@index')->name('talleres');
 
 /**
- * COMPANY
+ * Personas endpoints
  */
-Route::get('/company/home', function () { return view('company.home');})->name('company.home');
-
-
-// clients
-Route::get('/company/client', [ CatalogueClientController::class, 'index'])->name('company.client');
-Route::post('/company/client/add', [CatalogueClientController::class, 'add']);
-Route::get('company/client/edit/{id}', [CatalogueClientController::class, 'edit'])->name('company.client.edit');
-Route::post('company/client/update/{id}', [CatalogueClientController::class, 'update'])->name('company.client.update');
-Route::get('company/client/delete/{id}', [CatalogueClientController::class, 'delete'])->name('company.client.delete');
-
+Route::get('personas', 'App\Http\Controllers\PersonasController@index')->name('personas.index');
+Route::get('personas/crear', 'App\Http\Controllers\PersonasController@create')->name('personas.create');
+Route::post('personas', 'App\Http\Controllers\PersonasController@store')->name('personas.store');
+Route::get('personas/{id}', 'App\Http\Controllers\PersonasController@show')->name('personas.show');
 
