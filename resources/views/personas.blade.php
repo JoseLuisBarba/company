@@ -35,7 +35,7 @@
                         @foreach ($personas as $persona)
                             <tr>
                                 <td>
-                                    <p class="fw-normal mb-1">{{ $persona->nPerCodigo }}</p>
+                                    <p class="fw-normal mb-1">{{ $persona->id}}</p>
                                 </td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $persona->cPerApellido }}</p>
@@ -44,20 +44,21 @@
                                     <p class="fw-normal mb-1">{{ $persona->cPerNombre }}</p>
                                 </td>
                                 <td>
-                                    <button
+                                    <a
                                         type="button"
                                         class="btn btn-link btn-rounded btn-sm fw-bold"
                                         data-mdb-ripple-color="dark"
+                                        
                                     >
                                         Editar
-                                    </button>
+                                    </a>
                                 </td>
                                 <td>
                                     <a
                                         type="button"
                                         class="btn btn-link btn-rounded btn-sm fw-bold"
                                         data-mdb-ripple-color="dark"
-                                        href="{{ route('personas.show', $persona->nPerCodigo) }}"
+                                        href="{{ route('personas.show', $persona->id) }}"
                                     >
                                         Ver
                                     </a>

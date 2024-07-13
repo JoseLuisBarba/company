@@ -17,7 +17,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('inicio') }}" 
+                        class="{{ setActivo('home') }}" 
                         href="/"
                     >
                         Inicio
@@ -25,40 +25,39 @@
                 </li>
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('programas') }}" 
-                        href="programas"
+                        class="{{ setActivo('ingreso') }}" 
+                        href="/programas"
                     >
                         Programas
                     </a>
                 </li>
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('talleres') }}" 
-                        href="talleres"
+                        class="{{ setActivo('talleres') }}" 
+                        href="/talleres"
                     >
                         Talleres
                     </a>
                 </li>
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('asesoramiento') }}" 
-                        href="asesoramiento"
+                        class="{{ setActivo('asesoramiento') }}" 
+                        href="/asesoramiento"
                     >
                         Asesoramiento
                     </a>
                 </li>
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('personas') }}" 
-                        href="personas"
-                    >
-                        Personas
+                        class="{{ setActivo('personas') }}" 
+                        href="/personas"
                     </a>
+                    Personas
                 </li>
                 <li class="nav-item">
                     <a 
-                        class="nav-link {{ request()->routeIs('contacto') }}" 
-                        href="contacto"
+                        class="{{ setActivo('contacto') }}"  
+                        href="/contacto"
                     >
                         Contacto
                     </a>

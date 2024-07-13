@@ -6,7 +6,7 @@
 
 
     <div class="container py-5">
-        <h2>Personas <span class="badge badge-primary"> # {{ $persona->nPerCodigo }}</span></h2>
+        <h2>Personas <span class="badge badge-primary"> # {{ $persona->id }}</span></h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
 
                 <div class="card" style="width: 18rem;">
@@ -23,8 +23,11 @@
                         <li class="list-group-item px-4">Dirección: {{ $persona->cPerDireccion }}</li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Habilitar</a>
-                        <a href="#" class="card-link">Dar de Baja</a>
+                        <a href="{{ route('personas.edit', $persona) }}" class="card-link">Edit</a>
+                        <form action="{{ route('personas.destroy', $persona) }}" method="POST">
+                            @csrf @method('DELETE')
+                            <button class="card-link">Eliminar</button>
+                        </form>
                     </div>
                 </div>
 
