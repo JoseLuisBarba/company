@@ -24,6 +24,9 @@ class ContactoController extends Controller
 
         Mail::to('barba.farro.jose.luis@gmail.com')->send(new MensajeRecibido($mensaje));
         //return new MensajeRecibido($mensaje);
-        return 'Mensaje Enviado';
+        return back()->with(
+            'estado', 'Gracias por ponerte en contacto, te responderemos en brevedad.'
+        );
     }
+
 }

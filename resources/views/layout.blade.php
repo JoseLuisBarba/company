@@ -30,6 +30,7 @@
             @include('partials.nav')      
         </header>
         <main>
+            @include('partials.sesion-estado')
             @yield('content')
         </main>
         <!-- MDB -->

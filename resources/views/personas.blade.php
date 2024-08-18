@@ -10,15 +10,19 @@
 
     <div class="container py-5">
         <h2>Personas <span class="badge badge-primary"> # </span></h2>
-        <a
-            type="button"
-            class="btn btn-link btn-rounded btn-sm fw-bold"
-            data-mdb-ripple-color="dark"
-            href="{{ route('personas.create') }}"
-        >
-            Nueva Persona
-        </a>
-        
+
+        @auth
+            <a
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+                href="{{ route('personas.create') }}"
+            >
+                Nueva Persona
+            </a> 
+        @endauth
+
+    
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
 
             @if($personas)    

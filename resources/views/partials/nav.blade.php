@@ -62,9 +62,30 @@
                         Contacto
                     </a>
                 </li>
+                @guest
+                    <li class="nav-item">
+                        <a  
+                            href="{{ route('login') }}"
+                        >
+                            Login
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a  
+                            href="#" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();
+                            "
+                        >
+                            Cerrar Sesión
+                        </a>
+                    </li>
+                @endguest
             </ul>
         </div>
-
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
 </nav>
 <!-- Navbar -->
