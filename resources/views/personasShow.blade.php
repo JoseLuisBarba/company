@@ -10,7 +10,15 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
 
             <div class="card" style="width: 18rem;">
-                <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp" class="card-img-top" alt="Chicago Skyscrapers"/>
+                @if ($persona->image)
+                    <img 
+                        src="/storage/{{ $persona->image }}"
+                        alt="{{ $persona->cPerNombre }}"
+                        class="card-img-top" 
+                    />
+                @endif
+                
+                
                 <div class="card-body">
                     <h5 class="card-title">{{ $persona->cPerNombre }} {{ $persona->cPerApellido }}</h5>
                     <li class="list-group-item px-4">Sueldo  $ {{ $persona->nPerSueldo }}</li>

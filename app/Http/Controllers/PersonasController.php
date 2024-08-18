@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Persona;
 use Illuminate\Contracts\View\View;
 use App\Http\Requests\CreateServicioRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PersonasController extends Controller
 {
@@ -45,8 +46,11 @@ class PersonasController extends Controller
      */
     public function store(CreateServicioRequest $request)
     {
-        
-        Persona::create($request->validated( ));
+        $persona = new Persona($request->validated());
+
+        $persona->image = $request->file('image')->store('images');
+        $persona->save();
+
         return redirect()->route('personas.index')->with(
             'estado', 'La personsa fue creada corrextamente'
         );
@@ -66,24 +70,34 @@ class PersonasController extends Controller
         ]);
     }
 
-    public function edit(Persona $id)
+    public function edit(Persona  $persona)
     {
         //
         return view('personasEdit', [
-            'persona' => $id
+            'persona' =>  $persona
         ]);
     }
     /**
      * Store a newly created resource in storage.
-     * @param  Persona  $id
+     * @param  Persona  $persona
      * @param CreateServicioRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Persona $id, CreateServicioRequest $request)
+    public function update(Persona  $persona, CreateServicioRequest $request)
     {
         //
-        $id->update($request->validated());
-        return redirect()->route('personas.show', $id)->with(
+        if($request->hasFile('image')) {
+            Storage::delete( $request->image);
+            $persona->fill( $request->validated() );
+            $persona->image = $request->file('image')->store('images');
+            $persona->save();
+        }
+        else{
+            $persona->update( array_filter( $request->validated() ) );
+        }
+
+        $persona->update( array_filter( $request->validated() ) );
+        return redirect()->route('personas.show',  $persona)->with(
             'estado', 'La persona fue actualizada correctamente'
         );
     }
@@ -96,6 +110,10 @@ class PersonasController extends Controller
     public function destroy(Persona $persona)
     {
         //
+        if($persona->image){
+            Storage::delete($persona->image);
+        }
+       
         $persona->delete();
         return redirect()->route('personas.index')->with(
             'estado', 'La persona fue eliminada correctamente'

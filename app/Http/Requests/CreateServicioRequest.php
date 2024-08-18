@@ -32,6 +32,9 @@ class CreateServicioRequest extends FormRequest
             'nPerEdad' => 'required',
             'nPerSueldo' => 'required',
             'nPerEstado' => 'required',
+            'image' => [ 
+                $this->route('persona') ? 'nullable' : 'required', 'mimes:png,jpg,jpeg',
+            ]
         ];
     }
 
@@ -45,6 +48,7 @@ class CreateServicioRequest extends FormRequest
             'nPerEdad.required' => 'Se necesita edad',
             'nPerSueldo.required' => 'Se necesita sueldo',
             'nPerEstado.required' => 'Se necesita el estado',
+            'image.required' => 'Debes seleccionar una imagen'
         ];
     }
 

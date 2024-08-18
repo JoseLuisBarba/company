@@ -30,6 +30,7 @@
                     <thead class="bg-light">
                     <tr>
                         <th>Código</th>
+                        <th>Imagen</th>
                         <th>Apellido</th>
                         <th>Nombre</th>
                         <th>Acciones</th>
@@ -40,6 +41,16 @@
                             <tr>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $persona->id}}</p>
+                                </td>
+                                <td>
+                                    @if ($persona->image)
+                                        <img
+                                            src="/storage/{{ $persona->image }}"
+                                            alt="{{ $persona->cPerNombre }}"
+                                            width="50"
+                                            height="50"
+                                        >
+                                    @endif
                                 </td>
                                 <td>
                                     <p class="fw-normal mb-1">{{ $persona->cPerApellido }}</p>

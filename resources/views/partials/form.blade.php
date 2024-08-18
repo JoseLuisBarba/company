@@ -42,6 +42,19 @@
     </td>
 </tr>
 <tr>
+    <td colspan="2">
+        <input 
+            type="file" 
+            name="image" 
+            class="custom-file-input" 
+            id="customFile"
+        >
+        <label class="custom-file-label"  for="customFile">
+            Seleccione Archivo
+        </label>
+    </td>
+</tr>
+<tr>
     <td colspan="2" align="center"><button type="submit" class="btn btn-primary" class="form-control">{{$btnText}}</button></td>
 </tr>
 <!--
