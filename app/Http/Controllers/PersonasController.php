@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ServicioSaved;
 use Illuminate\Http\Request;
 use App\Models\Persona;
 use Illuminate\Contracts\View\View;
 use App\Http\Requests\CreateServicioRequest;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PersonasController extends Controller
 {
@@ -51,6 +53,14 @@ class PersonasController extends Controller
         $persona->image = $request->file('image')->store('images');
         $persona->save();
 
+        $image = Image::make(Storage::get($persona->image))
+                ->widen(600)
+                ->limitColors(255)
+                ->encode();
+                
+        Storage::put($persona->image, (string) $image);
+        ServicioSaved::dispatch($persona);
+
         return redirect()->route('personas.index')->with(
             'estado', 'La personsa fue creada corrextamente'
         );
@@ -91,6 +101,14 @@ class PersonasController extends Controller
             $persona->fill( $request->validated() );
             $persona->image = $request->file('image')->store('images');
             $persona->save();
+
+            $image = Image::make(Storage::get($persona->image))
+                ->widen(600)
+                ->limitColors(255)
+                ->encode();
+
+            Storage::put($persona->image, (string) $image);
+            ServicioSaved::dispatch($persona);
         }
         else{
             $persona->update( array_filter( $request->validated() ) );
